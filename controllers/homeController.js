@@ -1,6 +1,8 @@
 exports.home = ((req, res) => {
     res.json({
         success: true,
-        msg: "Home Page",
+        data: "Home Page",
+        user: req.user
     })
+
 })
