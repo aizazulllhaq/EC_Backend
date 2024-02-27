@@ -1,7 +1,7 @@
-exports.home = ((req, res) => {
+exports.dashboard = ((req, res) => {
     res.json({
         success: true,
-        data: "Home Page",
+        data: "Dashoard Page",
         user: req.user
     })
 

@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const homeRouter = Router();
-const homeController = require('../controllers/homeController');
+const dashboardController = require('../controllers/dashboardController');
 const { isLoggedIn } = require('../middlewares/isLoggedIn');
 
 
 homeRouter
-    .get('/', isLoggedIn, homeController.home);
+    .get('/dashboard', isLoggedIn, dashboardController.dashboard);
 
 exports.router = homeRouter;

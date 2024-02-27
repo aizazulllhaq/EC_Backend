@@ -1,15 +1,21 @@
-const passport = require('passport');
 const { User } = require('../models/userModel');
 
-exports.getAllUsers = async (req, res) => {
+exports.getUserDetail = async (req, res) => {
     try {
-        const users = await User.find({});
-        if (users) {
-            res.status(200).json({
-                success: true,
-                data: users
-            });
+        let { id } = req.params;
+        const user = await User.findById(id);
+        if (!user) {
+            return res.json({
+                success: false,
+                msg: "User Doesn't Exists"
+            })
         }
+        res.json({
+            success: true,
+            msg: "User Found",
+            data: user
+        })
+
     } catch (error) {
         console.log(error);
     }
